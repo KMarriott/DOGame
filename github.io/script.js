@@ -9,26 +9,23 @@ $(function(){
 
 
 var addEventListeners = function(){
-	// $('.character').on(
+	$('.character').on(
+		'click', function(){
+			console.log('clicked X')
+			$('.character.selected').removeClass("selected")
+			$(this).toggleClass("selected")
+
+		})
+
+	// $('.button#heal').on(
 	// 	'click', function(){
-	// 		console.log('clicked X')
-	// 		$('.character.selected').removeClass("selected")
-	// 		$(this).toggleClass("selected")
+	// 		//Log a message to not let you heal if your health is full
+	// 		// heal(status.current_turn)
+	// 		status.current_turn.health = status.current_turn.maxhealth
+	// 		nextTurn()
 
 	// 	})
 
-
-
-	$('.button#heal').on(
-		'click', function(){
-			// if(status.current_turn.health = status.current_turn.maxhealth){
-			// 	alert("Your health is full!")
-			// }
-			console.log(status.current_turn)
-			heal(status.current_turn)
-			console.log("You clicked heal")
-			nextTurn();
-		})
 
 	$('.button#attack').on(
 		'click', function(){
@@ -93,10 +90,6 @@ var addEventListeners = function(){
 		$('.left').show()
 		$('.mid').show()
 		$('.button').css('visibility', 'visible')
-		if(status.current_turn.enemy==true){
-			enemyturn()
-		}
-
 	})
 
 

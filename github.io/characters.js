@@ -12,8 +12,7 @@ let castor = {
 	skills: {},
 	experience : 0,
 	charge : 0,
-	enemy: false,
-	passive_text: '"As the going gets tough, the Castor get Going!" Castor gains +10 attack each time he attacks!'
+	enemy: false
 }
 
 // exports.castor = castor
@@ -30,9 +29,7 @@ let abby = {
 	skills: {},
 	experience : 0,
 	charge : 0,
-	enemy: false,
-	passive_text: "Abby's a lucky one."
-
+	enemy: false
 }
 // exports.abby = abby
 

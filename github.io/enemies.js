@@ -28,7 +28,7 @@ let enemylist = {
 		charge: 0,
 		skills: {},
 		experience: 100,
-		speed: 1200,
+		speed: 120,
 		enemy: true
 	},
 	sheepmon1: {
@@ -114,9 +114,6 @@ let enounters = {
 	// first : [enemylist.coronamon],
 	second : [enemylist.shurimon],
 	third : [enemylist.sheepmon1],
-	fourth: [enemylist.bullmon],
-	fifth: [enemylist.kuwagamon],
-	sixth: [enemylist.sangloupmon],
 	win: "win!"
 }
 

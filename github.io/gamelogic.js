@@ -228,6 +228,7 @@ let newround= function(){
 			status.party[key].health = status.party[key].maxhealth
 			status.party[key].concious = true
 			status.party[key].position.find('health').text(status.party[key].health +'/'+ status.party[key].maxhealth)
+
 		}
 
 
@@ -296,8 +297,7 @@ let setTurnOrder = function (){
 
 let nextTurn = function(){
 	
-	status.current_turn.position.removeClass('selected')
-	
+
 	$('[order]').first().remove()
 	$('[order]').first().css(
 		{'border-bottom-style': 'solid',
@@ -312,45 +312,6 @@ let nextTurn = function(){
 		status.current_turn = status.turn_queue[0]
 	}
 
-	status.current_turn.position.addClass('selected')
-
-	if(status.current_turn.enemy===true){
-		enemyturn()
-	}
-	if(status.current_turn.name==="Castor"){
-		status.current_turn.attack += 10
-		console.log("Castor gained 10 attack!")
-	}
-
-	// Konrad's broken passive
-	// if(status.current_turn.name==="Konrad"){
-	// 	console.log("Konrad's Health: " + status.current_turn.health)
-	// 	if(status.current_turn.health<status.current_turn.maxhealth){
-
-	// 		status.current_turn.health += 10
-	// 		console.log("Konrad's is now: " + status.current_turn.health)
-	// 		if(status.current_turn.health>status.current_turn.health){
-	// 			status.current_turn.health=status.current_turn.health
-
-	// 			console.log("Konrad's is MAXIMUM")
-
-	// 		}
-	// 		console.log("Konrad healed 10 health!")
-	// 	}
-	// }
-
-}
-
-function enemyturn(){
-
-	$('.button').hide()
-	setTimeout(function() {
-		$('.button').show()
-		$('#next').hide()
-		enemyAttack(status.current_turn)
-		nextTurn()
-	}, 1000);
-	
 }
 
 let target = function(x){
@@ -415,7 +376,6 @@ let attack = function(attacker, defender){
     // show hit bar and set the width
     hit.css('width', hitWidth);
     hBar.data('value', newValue);
-
     
     setTimeout(function(){
     	hit.css({'width': '0'});
@@ -432,47 +392,63 @@ let attack = function(attacker, defender){
 
 let heal = function(defender){
 	position = defender.position
-	defender.health = defender.maxhealth;
-	position.addClass('heal')
-	setTimeout(function() {
-		position.removeClass('heal')
-	}, 1000);
 
 
-	//Hit Bar Stuf ========================
+
 	hBar = position.find('.health-bar'),
 	bar = hBar.find('.bar'),
 	hit = hBar.find('.hit');	
 
-	var damage = 0;
-	var value = defender.health,
-	total = defender.maxhealth;
+	var total = defender.maxhealth,
+	value = defender.health;
+
+	if(status.current_target.enemy === true){
+		console.log("Enemy turn")
+	}
 
 
-	var newValue = value - damage;
+	defender.health = defender.maxhealth;
+
+	console.log(defender.name + " healed " + damage + " damage!");
+	// $('.playertext').append("<br>" + attacker.name + " dealt " + defender.name + " " + damage + " damage!");
+	
+	if(defender.health<0){
+		defender.health=0
+	}
+	defender.position.find('health').text(defender.health +'/'+ defender.maxhealth)
+	
+	if (value < 0) {
+			// log("you dead, reset");
+			return;
+		}
+
+    // max damage is essentially quarter of max life
+    // var damage = Math.floor(Math.random()*total);
+    // damage = 100;
+    var newValue = value - damage;
     // calculate the percentage of the total width
     var barWidth = (newValue / total) * 100;
 
     var hitWidth = (damage / value) * 100 + "%";
     var hitWidthval = (damage / value)
-
     console.log(hitWidthval*100)
     if(hitWidthval*100 > 99) {
     	console.log(hitWidth)
     	hitWidth = '99%'
     }
+
+    
+    // show hit bar and set the width
     hit.css('width', hitWidth);
     hBar.data('value', newValue);
-
+    
     setTimeout(function(){
     	hit.css({'width': '0'});
     	bar.css('width', barWidth + "%");
     }, 500);
-
-
-    console.log(defender)
-    defender.position.find('health').text(defender.health +'/'+ defender.maxhealth)
-
+    //bar.css('width', total - value);
+    
+    // log(value, damage, hitWidth);
 
 }
 
@@ -484,12 +460,12 @@ let playerAttack = function(attacker, defender){
 	if(attacker.concious === true){
 		attack(attacker, defender);
 
-		attacker.position.addClass('pulse')
+		attacker.position.addClass('hatch')
 		// defender.position.addClass('pulse')
 		setTimeout(function() {
-			attacker.position.removeClass('pulse')
+			attacker.position.removeClass('hatch')
 			// defender.position.removeClass('pulse')
-		}, 750);
+		}, 2000);
 
 
 		if(defender.health <= 0){
@@ -505,6 +481,7 @@ let playerAttack = function(attacker, defender){
 			if(status.isEnemyDead()===true){
 				$('.button').hide()
 				$('.button#next').show()
+				
 			}
 		}
 	}
@@ -532,40 +509,46 @@ let enemyAttack = function(attacker){
 		for (keys in status.party){
 			console.log(status.party[keys].concious)
 			if(status.party[keys].concious===true)
-				concious_party[keys] = status.party[keys]
-		}
-
-		var obj_keys = Object.keys(concious_party);
-		var ran_key = obj_keys[Math.floor(Math.random() *obj_keys.length)];
-		ran_character = concious_party[ran_key];
-		console.log("random character is ")
-		console.log(ran_character);
-		return ran_character;
+			//add to new json
+		concious_party[keys] = status.party[keys]
 	}
 
-	defender = ranChar();
+	var obj_keys = Object.keys(concious_party);
+	var ran_key = obj_keys[Math.floor(Math.random() *obj_keys.length)];
+	ran_character = concious_party[ran_key];
+	console.log("random character is ")
+	console.log(ran_character);
+	return ran_character;
 
-	if(defender.concious===false){
-		console.log(attack.name + "tried to attack an unconcious target")
-		$('.playertext').append("<br>Bug: " + attacker.name +" Tried to attack an unconcious target!")
-	}	
+}
 
-	else{
-		attack(attacker, defender)
-		if(defender.health <= 0){
-			defender.health = 0;
-			defender.concious = false;
-			console.log(defender.player)
-			$('#'+defender.player).addClass('defeated')
-			console.log(defender.name + " has been defeated by " + attacker.name +"!")
-			$('.playertext').append("<br>" + defender.name + " has been defeated by " + attacker.name +"!")
-		}
+
+
+
+defender = ranChar();
+
+if(defender.concious===false){
+	console.log(attack.name + "tried to attack an unconcious target")
+	$('.playertext').append("<br>Bug: " + attacker.name +" Tried to attack an unconcious target!")
+}	
+
+else{
+	attack(attacker, defender)
+	if(defender.health <= 0){
+		defender.health = 0;
+		defender.concious = false;
+		console.log(defender.player)
+		$('#'+defender.player).addClass('defeated')
+		console.log(defender.name + " has been defeated by " + attacker.name +"!")
+		$('.playertext').append("<br>" + defender.name + " has been defeated by " + attacker.name +"!")
 	}
+}
 
-	defender.position.addClass("hit")
-	setTimeout(function() {
-		defender.position.removeClass("hit")
-	}, 1000);
+defender.position.addClass("hit")
+
+setTimeout(function() {
+	position.removeClass("hit")
+}, 1000);
 }
 
 

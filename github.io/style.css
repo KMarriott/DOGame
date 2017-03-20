@@ -357,7 +357,7 @@
 			}
 
 			.character:hover, .enemyimage:hover{
-				/*animation: pulse 0.82s cubic-bezier(.36,.07,.19,.97) both;*/
+				animation: floating 0.82s cubic-bezier(.36,.07,.19,.97) both;
 			}
 /*			.enemyimage:hover .character:hover .button:hover{
 				animation: floating;
