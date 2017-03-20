@@ -1,0 +1,376 @@
+			body{
+				text-align: center;
+			}
+			.start{
+				float: left;
+				width: 80%;
+				background: #ebebe0;
+			}
+			.top{
+				width: auto; 
+				height: auto;
+				background-color: #181000;]
+				position: absolute;
+				/*border-style: solid;*/
+			}
+			.bg{
+				max-width: 60em;
+				min-height: 10em;
+				/* 				background-color: #f66f00; */
+				position: absolute;
+				/*border-style: solid;*/
+				border-radius: 10px;
+			}
+			.mid{
+				float: 	right;
+				background-color: grey;
+				height: 100%;
+				width: 20%;		
+				/*margin: 10px 0 0 0;*/
+				/*bottom: 0;*/
+				position: relative;
+				visibility: hidden;
+			}
+			.left {
+				width: 80%;
+				/*height: 30em;*/
+				/* 				background-color: #ff5; */
+				float: left;
+				bottom:0;
+				border-top-left-radius: 10px;
+				position: relative;
+				align-items: center;
+				justify-content: center;
+			}
+			.right {
+				width: 80%;
+				/*height: 30em;*/
+				/* 				background-color: black; */
+				float: left;
+				bottom:0;
+				border-bottom-right-radius: 10px;
+				position: relative;
+				align-items: center;
+				justify-content: center;
+				/*padding-left: 0.5%;*/
+			}
+
+			.buttcontainer{	
+				display: inline;
+				float: right;
+				width: 10%;
+				align-items: center;
+				justify-content: center;
+				padding-top: 10px
+
+
+			}
+
+
+			.button{
+				margin: 5px;
+				cursor: pointer;
+				/* 				background-color: #a014a0; */
+				background: rgba(0, 0, 0, 0.6);
+				color: white;
+				/*border-style: solid;*/
+				width: 100%;
+				bottom: 5px;
+				/*margin-left: auto;*/
+				/*margin-right: auto;*/
+				visibility: hidden;
+
+
+			}
+
+			.button#start{
+				/*display: flex;*/
+				width: 30%;
+				margin-left: auto;
+				margin-right: auto;
+				visibility: visible;
+			}
+
+			.button#next{
+				width: 130%;
+			}
+
+
+			.off{
+				background-color: grey;
+				cursor: default;
+			}
+			.score{
+				float: right;
+			}
+
+			.turnorder{
+				background: rgba(0, 0, 0, 0.6);
+				color: white;
+				/* 				border-bottom-style: solid; */
+				width: 100%;
+				/*float: left;*/
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				scroll-behavior: smooth;
+				padding: 10px 0px 10px 0px;
+			}
+
+			.turn{
+				/*gamelogic.js as border stuff*/
+				display: flex;
+				/*height: 50px;*/
+				/*width: 50px;*/
+				margin: 0 5px 0 5px;
+				padding: 5px;
+				background: rgba(0, 0, 0, 0.3);
+				border-radius: 10px;
+
+			}
+			.enemy_container{
+				display: flex;
+				width: 100%;
+				/* background-color: magenta; */
+				background-image: url("./images/Binary_Castle_b.jpg");
+				align-items: center;
+				justify-content: center;
+				float: center;
+				padding: 10px 0px 10px 0px;
+			}
+
+			.enemyimage{
+				height: 200px;
+				width: 200px;
+				/*display:flex;
+				/*background-image: url("./images/shurimon.jpg");*/
+				background-repeat: no-repeat;
+				background-color: white;
+				background-size: 100% ;
+				/*align-items: center;*/
+				/*justify-content: center;*/
+				margin: 1px;
+				/*margin: 10px 10px 10px 10px;*/
+				border-radius: 10px;
+				position: relative;
+
+			}
+
+			.selected{
+				border-style: solid;
+				border-color: gold;
+			}
+			.selected#player1{
+				border-color: red;
+			}
+			.selected#player2{
+				border-color: gold;
+			}
+			.selected#player3{
+				border-color: orange;
+			}
+			.selected#player4{
+				border-color: green;
+			}
+			.selected#player5{
+				border-color: blue;
+			}
+
+
+			.defeated{
+				-webkit-filter: grayscale(100%);
+			}
+
+			/*Health bar code - http://codepen.io/dwidomski/pen/KBzuo*/
+
+			.health-bar{
+				height: auto;
+				width: 100%;
+				background-color: grey;
+				display:inlineflex;
+				bottom: 10px;
+				position: absolute;
+			}
+
+			.bar {
+				background: #c54;
+				width: 100%;
+				height: 10px;
+				position: relative;
+				transition: width .5s linear;
+				padding-top: 5px;
+			}
+
+			.hit {
+				background: rgba(255,255,255,0.6);
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 0px;
+				padding-top: 5px;
+
+				transition: width .5s linear;
+
+			}
+
+			.health-bg{
+				height: auto;
+				width: 100%;
+				background-color: white;
+				display:inlineflex;
+				bottom: 0px;
+				position: absolute;
+				border-bottom-right-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+
+
+
+
+
+			.header{
+				/* 				background-color: #f66f00; */
+				width: 100%;
+				align-items: center;
+				justify-content: center;
+			}
+			.header#left{
+				width: 100%;
+				/* 				background-color: purple; */
+				background: rgba(0, 0, 0, 0.8);
+
+				color: white;
+			}
+			.header#turnorder{
+				border-bottom-style: solid;
+			}
+			.bottom{
+				bottom: 0
+				position: absolute;
+			}
+
+
+			.characters_container{
+				display: flex;
+				width: 100%;
+				height: 50%;
+				background: rgba(0, 0, 0, 0.5);
+				/* 				background-color: purple; */
+				align-items: center;
+				justify-content: center;
+				float: left;
+				padding: 10px 0px 10px 0px;
+				border-bottom-right-radius: 10px;
+			}
+			.character{
+				width: 90px;
+				height: 200px;
+				min-height: 50%;
+				/* 				background-color: pink; */
+				float: left;
+				margin: 0 2px 0 2px;
+				border-radius: 10px;
+				background-image: url("./images/Kids.png");
+				background-size: 700px ;
+				background-repeat: no-repeat;
+				position: relative;
+			}
+			.charactertext{
+				border-radius: 10px;
+				background-color: white;
+				overflow: hidden;
+				scroll-behavior: smooth;
+			}
+			.playertext{
+				max-height: 25em;
+				min-height: 25em;
+				width: 100%;
+				/* 				background-color: orange; */
+				border-bottom-right-radius: 5px;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				align-items: center;
+				justify-content: center;
+				overflow-y: scroll;
+				scroll-behavior: smooth;
+			}
+
+			.enemytext{
+				/*height: 100%;*/
+				width: 100%;
+				align-items: center;
+				justify-content: center;
+				/*box-sizing: border-box;*/
+				/*scroll-behavior: smooth;*/
+				/*position: absolute;*/
+				background: salmon;
+				display: flex;
+			}
+
+			.turn#order0{
+				border-bottom-style: solid;
+				border-color: orange;
+			}
+
+
+			/*//could probably be set with javascript when setting players*/
+			.character#player1{
+				background-position: -40px -1px;
+			}
+			.character#player2{
+				background-position: -308px -20px;
+			}
+			.character#player3{
+				background-position: -175px -28px;
+			}
+			.character#player4{
+				background-position: -435px -40px;
+			}
+			.character#player5{
+				background-position: -565px -1px;
+			}
+
+			health{
+				/*color: red;*/
+				/*width: 100%;*/
+				background: none;
+				position: absolute;
+				z-index:10;
+				display: flex;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			/*CSS Shake - https://elrumordelaluz.github.io/csshake/*/
+			.hit {
+				animation: shake-opacity 0.82s cubic-bezier(.36,.07,.19,.97) both;
+				/*transform: translate3d(0, 0, 0);*/
+				/*backface-visibility: hidden;*/
+				/*perspective: 1000px;*/
+			}
+
+			.button:hover{
+				animation: floating 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			}
+/*			.enemyimage:hover .character:hover .button:hover{
+				animation: floating;
+				}*/
+
+				win{
+					color:white;
+					font-family: 'Slackey', cursive;
+					font-size: 100px;
+					-webkit-text-stroke-width: 2px;
+					-webkit-text-stroke-color: black;
+				}
+
+				lose{
+					color:white;
+					font-family: 'Slackey', cursive;
+					font-size: 100px;
+					-webkit-text-stroke-width: 2px;
+					-webkit-text-stroke-color: black;
+				}
