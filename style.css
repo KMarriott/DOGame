@@ -1,6 +1,17 @@
 			body{
 				text-align: center;
 			}
+
+			.back{
+				cursor: pointer;
+				background: rgba(0, 0, 0, 0.6);
+				color: white;
+				width: 100%;
+				bottom: 5px;
+				text-align: left;
+			}
+
+
 			.start{
 				float: left;
 				width: 80%;
@@ -85,7 +96,7 @@
 				background-color: rgba(0, 0, 0, 0.6);
 				cursor: auto;
 				width: 100%;
-				border-bottom: pointer;
+				border-bottom: solid;
 			}
 
 
