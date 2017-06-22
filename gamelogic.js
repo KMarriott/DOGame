@@ -234,7 +234,7 @@ let newround= function(){
 		$('.enemyimage').removeClass('defeated')
 		
 		status.enemy = {};
-		$('.turnorder').text(" ")
+		$('.turnorder').text("")
 		$('.playertext').text("")
 		status.turn_queue = []
 
@@ -297,7 +297,7 @@ let setTurnOrder = function (){
 let nextTurn = function(){
 	
 	status.current_turn.position.removeClass('selected')
-	
+	$('.CurrentTurn#'+status.current_turn.name).removeClass('visible')
 	$('[order]').first().remove()
 	$('[order]').first().css(
 		{'border-bottom-style': 'solid',
@@ -313,6 +313,8 @@ let nextTurn = function(){
 	}
 
 	status.current_turn.position.addClass('selected')
+
+	$('.CurrentTurn#'+status.current_turn.name).addClass('visible')
 
 	if(status.current_turn.enemy===true){
 		enemyturn()
@@ -383,7 +385,7 @@ let attack = function(attacker, defender){
 
 	defender.health -= damage;
 
-	console.log(attacker.name + " dealt " + defender.name + " " + damage + " damage!");
+	$('.enemytext').text(attacker.name + " attacks " + defender.name +  " " + damage + " damage!");
 	$('.playertext').append("<br>" + attacker.name + " dealt " + defender.name + " " + damage + " damage!");
 	
 	if(defender.health<0){
@@ -497,8 +499,8 @@ let playerAttack = function(attacker, defender){
 			defender.concious = false;
 			
 			console.log(defender.name + " has been defeated by " + attacker.name +"!")
-			$('.enemytext').text(defender.name + " has been defeated by " + attacker.name +"!")
-			$('.playertext').append("<br>" + attacker.name + " dealt the final blow!")
+			// $('.enemytext').text(defender.name + " has been defeated by " + attacker.name +"!")
+			$('.enemytext').append("<br>" + attacker.name + " dealt the final blow!")
 			defender.position.addClass('defeated')
 
 
@@ -519,7 +521,7 @@ let playerAttack = function(attacker, defender){
 }
 
 function scoreupdate(){
-	$('#score').text("Score:\n" + status.score)
+	$('#score').text("Team Score:\n" + status.score)
 }
 
 let enemyAttack = function(attacker){

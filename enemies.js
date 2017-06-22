@@ -3,7 +3,7 @@
 let enemylist = {
 	coronamon: {
 		id: 0,
-		name: 'Coronamon',
+		name: 'The Enemy Creature',
 		image: 'https://wikimon.net/images/8/82/Coronamon.jpg',
 		level: 1,
 		health: 1000,
@@ -18,7 +18,7 @@ let enemylist = {
 	},
 	shurimon : {
 		id: 1,
-		name: 'Shurimon',
+		name: 'The Enemy Creature',
 		image: 'https://wikimon.net/images/thumb/7/76/Shurimon2.jpg/200px-Shurimon2.jpg',
 		level: 1,
 		health: 1000,
@@ -33,7 +33,7 @@ let enemylist = {
 	},
 	sheepmon1: {
 		id: 2,
-		name: 'Sheepmon Bro 1',
+		name: 'The Enemy Creature',
 		image: 'https://wikimon.net/images/b/bb/Sheepmon.jpg',
 		level: 1,
 		health: 1000,
@@ -48,7 +48,7 @@ let enemylist = {
 	},
 	sheepmon2: {
 		id: 3,
-		name: 'Sheepmon Bro 2',
+		name: 'The Enemy Creature',
 		image: 'https://wikimon.net/images/f/f2/Sheepmon_illustcon3.jpg',
 		level: 1,
 		health: 1000,
@@ -63,7 +63,7 @@ let enemylist = {
 	},
 	bullmon: {
 		id: 4,
-		name: 'Bullmon',
+		name: 'The Enemy Creature',
 		image: 'https://wikimon.net/images/2/2f/Bullmon.jpg',
 		level: 1,
 		health: 2000,
@@ -78,7 +78,7 @@ let enemylist = {
 	},
 	kuwagamon: {
 		id: 3,
-		name: 'Kuwagamon',
+		name: 'The Enemy Creature',
 		image: 'https://wikimon.net/images/e/e3/Kuwagamon3.jpg',
 		level: 1,
 		health: 1500,
@@ -93,7 +93,7 @@ let enemylist = {
 	},
 	sangloupmon: {
 		id: 3,
-		name: 'Sangloupmon',
+		name: 'The Enemy Creature',
 		image: 'https://wikimon.net/images/d/da/Sangloupmon_fortune.png',
 		level: 1,
 		health: 900,

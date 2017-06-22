@@ -10,19 +10,26 @@
 
 </head>
 <body>
-
+	<div class='flex'>
 	<div class='bg'>
 		<div class='start'>
-			A group of children find yourself in an odd world filled with monsters! <br> Help them defeat all the creatures and find their way home!
+			A group of children: Castor, Abby, Chie, Todd, and Konrad find themselves in an odd world filled with monsters!
+			<br/>
+			<br/>
+			Use your actions to help them defeat all the creatures and find their way home!
+
+			<br>
+			<br>Attack
+			<br>Deals damage to the enemy creatures.
+			<br>Note some kids hit harder than others!
+			<br>
+			<br>Heal
+			<br>Heals the child to full health.
+
+
 			<div class='button' id=start>Start!</div>
 		</div>
-		<div class='mid'>
-			<div class='header' id=left>Message Log
-			</div>
-			<div class='playertext log'> Player Message! </div>
 
-
-		</div>
 		<div class='left'>
 			<div class='header' id=left>Round 1
 			</div>
@@ -33,7 +40,9 @@
 						<div class="bar">
 							<div class="hit"></div>
 						</div>
+						<div class="backgroundWhite">Enemy Creature</div>
 					</div>
+
 				</div>
 				<div class='enemyimage' id='1'>
 					<div class='health-bg'><br></div>
@@ -69,7 +78,7 @@
 				</div>
 			</div>
 			<div class='turnorder'>
-			Next Turn:
+				Turn Order:
 				<!-- <ul class='turn'>Abby</ul> -->
 				<!-- <ul class='turn'>Chie</ul> -->
 				<!-- <ul class='turn'>Shurimon</ul> -->
@@ -77,100 +86,106 @@
 				<!-- <ul class='turn'>Todd</ul> -->
 				<!-- <ul class='turn'>Konrad</ul> -->
 			</div>
-<!-- 
+
 			<div class='enemytext'>
 				Enemy Message!
 			</div>
-		-->
-	</div>
 
-	<div class='right'>
-
-
-		<div class='characters_container'>
-
-			<div class='character'  id = player1> 
-				<div class='health-bg'><br></div>
-				<div class=charactertext>Castor</div>
-				<div class='health-bar' data-total="1000" data-value="1000">
-					<health>
-						100
-					</health>
-					<div class="bar">
-						<div class="hit"></div>
-					</div>
-				</div>
-			</div>
-			<div class='character' id = player2> 
-				<div class='health-bg'><br></div>
-				<div class=charactertext>Abby</div>
-				<div class='health-bar' data-total="1000" data-value="1000">
-					<health>
-
-					</health>
-					<div class="bar">
-						<div class="hit"></div>
-					</div>
-				</div>
-			</div>
-			<div class='character' id = player3> 
-				<div class='health-bg'><br></div>
-				<div class=charactertext>Chie</div>
-				<div class='health-bar' data-total="1000" data-value="1000">
-					<health></health>
-					<div class="bar">
-						<div class="hit"></div>
-					</div>
-				</div>
-			</div>
-			<div class='character' id = player4> 
-				<div class='health-bg'><br></div>
-				<div class=charactertext>Todd</div>
-				<div class='health-bar' data-total="1000" data-value="1000">
-					<health></health>
-					<div class="bar">
-						<div class="hit"></div>
-					</div>
-				</div>
-			</div>
-			<div class='character' id = player5>
-				<div class='health-bg'><br></div>
-				<div class=charactertext>Konrad</div>
-				<div class='health-bar' data-total="1000" data-value="1000">
-					<health></health>
-					<div class="bar">
-						<div class="hit"></div>
-					</div>
-
-				</div>
-			</div>
-
-			<div class = 'buttcontainer'>
-				<p class='button' id='attack'>Attack</p>
-				<p class='button' id='defend'>Defend</p>
-				<p class='button' id='heal'>Heal</p>
-				<p class='button' id='skill'>Skill</p>
-				<p class='button' id='next'>Next</p>
-				<div class = 'score'>
-					<p id='score'>Score:<br> 0</p>
-				</div>
-			</div>
 		</div>
 
-		<div class='header'>
+		<div class='right'>
+
+
+			<div class='characters_container'>
+
+				<div class='character'  id = player1> 
+					<div class='health-bg'><br></div>
+					<div class=charactertext>Castor</div>
+					<div class='health-bar' data-total="1000" data-value="1000">
+						<health>
+							100
+						</health>
+						<div class="bar">
+							<div class="hit"></div>
+						</div>
+
+					</div>
+					<div class="CurrentTurn" id = "Castor">Current Turn</div>
+				</div>
+				<div class='character' id = player2> 
+					<div class='health-bg'><br></div>
+					<div class=charactertext>Abby</div>
+					<div class='health-bar' data-total="1000" data-value="1000">
+						<health>
+
+						</health>
+						<div class="bar">
+							<div class="hit"></div>
+						</div>
+					</div>
+					<div class="CurrentTurn" id = "Abby">Current Turn</div>
+				</div>
+				<div class='character' id = player3> 
+					<div class='health-bg'><br></div>
+					<div class=charactertext>Chie</div>
+					<div class='health-bar' data-total="1000" data-value="1000">
+						<health></health>
+						<div class="bar">
+							<div class="hit"></div>
+						</div>
+					</div>
+					<div class="CurrentTurn" id = "Chie">Current Turn</div>
+				</div>
+				<div class='character' id = player4> 
+					<div class='health-bg'><br></div>
+					<div class=charactertext>Todd</div>
+					<div class='health-bar' data-total="1000" data-value="1000">
+						<health></health>
+						<div class="bar">
+							<div class="hit"></div>
+						</div>
+					</div>
+					<div class="CurrentTurn" id = "Todd">Current Turn</div>
+				</div>
+				<div class='character' id = player5>
+					<div class='health-bg'><br></div>
+					<div class=charactertext>Konrad</div>
+					<div class='health-bar' data-total="1000" data-value="1000">
+						<health></health>
+						<div class="bar">
+							<div class="hit"></div>
+						</div>
+
+					</div>
+					<div class="CurrentTurn" id = "Konrad">Current Turn</div>
+				</div>
+
+				<div class = 'buttcontainer'>
+				<div class = 'button' id ='action'>Pick An Action!</div>
+					<p class='button' id='attack'>Attack</p>
+					<p class='button' id='heal'>Heal</p>
+					<p class='button' id='next'>Next</p>
+					<div class = 'score'>
+						<p id='score'>Team Score:<br> 0</p>
+					</div>
+				</div>
+			</div>
+
+			<div class='header'>
+			</div>
+
+
 		</div>
 
-
+		<div>*Does not work on Safari for iOS</div>
 	</div>
-
-</div>
-
-
+	
 
 </div>
 </div>
-
+</div>
 </body>
+
 </html>
 
 
